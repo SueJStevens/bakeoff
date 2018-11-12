@@ -1,0 +1,10 @@
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <P>{{productName}}</P>
+        <button class={{#if eaten}}"delete-product btn btn-secondary"{{else}}"change-eaten btn btn-secondary"{{/if}} data-id="{{id}}" data-neweaten="{{eaten}}">
+          {{#if eaten}}Exercise!{{else}}Eat!{{/if}}
+        </button>
+      </div>
+    </li>
+</ul>

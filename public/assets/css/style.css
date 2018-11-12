@@ -1,0 +1,125 @@
+#jumbotron_img {
+  border-bottom: solid;
+  border-color: #1F2936;
+  background: #fff url("../images/mark-muhlberger-973166-unsplash.jpg") no-repeat center center fixed;
+  background-size: cover;
+  opacity: 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#jumbotron_hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; 
+}
+
+.display-2 {
+  font-size: 3.5rem
+}
+
+.display-3 {
+  font-size: 2.5rem
+}
+
+.display-3 {
+  font-size: 2.0rem
+}
+
+.display-4 {
+  font-size: 1.5rem
+}
+
+.btn-outline-secondary {
+  color: #fff;
+  background-color: transparent;
+  background-image: none;
+  border-color: #fff;
+}
+
+.card-container
+{
+  position: relative;
+  top:-40px;
+  z-index:-0;
+}
+.card {
+  width: 36rem;
+}
+
+.card-header:first-child {
+  border-radius: calc(1.25rem - 1px) calc(1.25rem - 1px) 0 0;
+}
+
+.card-footer:last-child {
+  border-radius: 0 0 calc(1.25rem - 1px) calc(1.25rem - 1px);
+}
+
+.rounded-circle {
+  border-radius: 30%!important;
+}
+
+.rounded {
+  border-radius: 4.25rem!important;
+}
+
+
+.imgContainer {
+  height: 200px;
+}
+
+img {
+  width: 200px!important;
+  height: 200px!important;
+  border: 5px solid #fff;
+  border-radius: 100%;
+  display: inline-block;
+  cursor:pointer;
+}
+
+
+.gallery-container
+{
+  position: relative;
+  top:-50px;
+  z-index:-0;
+}
+
+.gallery-img
+{
+  width:200px!important;
+  height: 200px!important;
+}
+
+.gallery-text{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  height: 200px; 
+  text-align: center;
+  border: 5px solid #343a40;
+  border-radius: 30%;
+  background-color: rgba(0,0,0,0.2);
+  opacity: 0;
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  vertical-align:middle;
+  line-height:200px;
+}
+
+.gallery-text:hover{
+  opacity: 1;      
+}
+
+.gallery-text h3{
+  color: white;
+  display: inline-table;
+  vertical-align:middle;
+  line-height:100%;            
+}

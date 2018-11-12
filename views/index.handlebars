@@ -1,0 +1,84 @@
+  <div class="container-fluid">
+    <div class="jumbotron-fluid rounded" id="jumbotron_img">
+      <div class="container text-center text-white pt-5 pb-5">
+        <h1 class="display-2">Preheat Your Ovens...</h1>
+        <h1 class="display-3">The Holidaze are almost here...</h1>
+        <h1 class="display-4">Time For The...Great American Bake-Off!</h1>
+        <hr class="my-4" id="jumbotron_hr">
+
+        <div class="col-6 offset-3">
+          <form class="create-form">
+            <label for="product" class="display-4">Add Your Favorite Holiday Treat to the List.</label>
+            <input id="product" name="product" type="text" class="form-control" placeholder="Gingerbread Cookies">
+            <button type="submit" class="btn btn-outline-secondary mt-3 mb-3">Add to Favorites List</button>
+            </form>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-container text-center">
+    <div class="d-flex justify-content-center imgContainer">
+
+      <div class="gallery-img mr-1">
+        <img class="img-fluid rounded-circle mr-1" src="/assets/images/priscilla-du-preez-1089411-unsplash.jpg" alt="Pie Image" id="pieImg">
+        <div class="gallery-text mr-1">
+          <h3>PIE!</h3>
+        </div>
+      </div>
+
+      <div class="gallery-img ml-1 mr-1">
+        <img class="img-fluid rounded-circle ml-1 mr-1" src="/assets/images/monika-grabkowska-483364-unsplash.jpg" alt="Cookie Image" id="cookieImg">
+        <div class="gallery-text ml-1 mr-1">
+          <h3>COOKIES!</h3>
+        </div>
+      </div>
+
+      <div class="gallery-img ml-1 mr-1">
+        <img class="img-fluid rounded-circle ml-1 mr-1" src="/assets/images/Chocolate-Peppermint-Holiday-Cake-5-598x900.jpg" alt="Cake Image" id="cakeImg">
+        <div class="gallery-text ml-1 mr-1">
+          <h3>CAKE!</h3>
+        </div>
+      </div>
+
+      <div class="gallery-img ml-1">
+        <img class="img-fluid rounded-circle ml-1" src="/assets/images/OtherBaking.jpg" alt="Other Baking Image" id="otherBakingImg">
+        <div class="gallery-text ml-1">
+          <h3>OTHER GOODIES!</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center card-container mt-0 pt-0">
+    <div class="card rounded text-center ml-5 mr-5">
+      <div class=" card-header bg-dark text-white">
+      All Holiday Foods!
+      </div>
+      {{#each bakeoffs}}
+        {{#unless eaten}}
+          {{> products/product-block eaten=false}}
+        {{/unless}}
+      {{/each}}
+      <div class="card-footer  bg-dark text-white text-muted">
+        2 days ago
+      </div>
+  </div>
+    <div class="card rounded text-center ml-5 mr-5">
+      <div class=" card-header bg-dark text-white">
+      Holiday Pounds Added!
+      </div>
+      {{#each bakeoffs}}
+        {{#if eaten}}
+          {{> products/product-block eaten=true}}
+        {{/if}}
+      {{/each}}
+      <div class="card-footer  bg-dark text-white text-muted">
+        2 days ago
+      </div>
+    </div>
+  </div>
+</div>  
