@@ -7,6 +7,11 @@ var cat = {
       cb(res);
     });
   },
+  catfilter: function(condition, cb) {
+    orm.catfilter("products", condition, function(res) {
+      cb(res);
+    });
+  },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
     orm.create("products", cols, vals, function(res) {

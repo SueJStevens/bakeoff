@@ -30,6 +30,7 @@ function objToSql(ob) {
         value = "'" + value + "'";
       }
       // e.g. {productName: 'Key Lime Pie'} => ["productName='Key Lime Pie'"]
+      // e.g. {productCat: 'pies'} => ["productCat='pies'"]
       // e.g. {eaten: true} => ["eaten=true"]
       arr.push(key + "=" + value);
     }
@@ -43,6 +44,19 @@ function objToSql(ob) {
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  catfilter: function(tableInput, condition, cb) {
+    console.log("the Condition is: "+condition);
+    var queryString = "SELECT * FROM " + tableInput;
+    queryString += " Where productCat = '" + condition + "'";
+    queryString += ";";
+    console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -70,7 +84,7 @@ var orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, sleepy: true}
+  // An example of objColVals would be {name: Oatmeal, eaten: true}
   update: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 

@@ -1,4 +1,3 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   $(".change-eaten").on("click", function(event) {
     console.log("Eaten Button Clicked!");
@@ -62,6 +61,38 @@ $(function() {
         //Reset Form
         $('.create-form')[0].reset();
         // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  $(".category-filter").on("click", function(event) {
+    console.log("Filter Button Clicked!");
+    var category = $(this).data("category");
+    console.log(category);
+
+    //create the object to send to ajax
+    var catFilter = {
+      productCat: category
+    };
+    window.location="/"+category;
+    return;
+
+
+    //delete dom elements then insert them again
+    //otherwise new route with /:category where category=?
+
+    // Send the PUT request.
+    //$.ajax("/api/category/" + category, {
+    $.ajax("/api/category", {
+        type: "GET", //throws error Can't set headers after they are sent.
+      //type: "PATCH",  //throws 404 not found
+      //type: "PUT",
+      data: catFilter
+    }).then(
+      function() {
+        // Reload the page to get the filtered list
+        console.log("Did I reload?");
         location.reload();
       }
     );
