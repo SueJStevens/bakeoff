@@ -1,4 +1,5 @@
 var express = require("express");
+var moment = require("moment");
 
 var PORT = process.env.PORT || 8080;
 
@@ -18,6 +19,22 @@ var exphbs = require("express-handlebars");
 var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
+
+//see this stackOverflow for more help:  https://stackoverflow.com/questions/53357416/getting-specific-number-of-days-with-moment-js-node-npm-and-handlbars?noredirect=1#comment93592623_53357416
+//see this website for more help:  https://code-maven.com/handlebars-helpers
+Handlebars.registerHelper('days-diff', date => {
+  return Math.abs(moment().startOf('day').diff(moment(date).startOf('day'), 'days')+1);
+});
+
+/*
+const template = Handlebars.compile(`
+  Until 12/10/2018: {{days-diff "12/10/2018"}}
+  Until 12/25/2018: {{days-diff "12/25/2018"}}
+  Until 12/25/2019: {{days-diff "12/25/2019"}}
+`); 
+*/
+
+//console.log(template());
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
