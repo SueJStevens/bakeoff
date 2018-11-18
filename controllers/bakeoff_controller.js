@@ -8,22 +8,31 @@ var bakeoff = require("../models/bakeoff.js");
 // Create all our routes and set up logic within those routes where required.
 router.get("/:productCat?", function (req, res) {
   var condition = req.params.productCat;
+  var cardheader = "All Holiday Foods!";
   if (!condition) {
     bakeoff.all(function (data) {
       var hbsObject = {
-        bakeoffs: data
+        bakeoffs: data,
+        cardheader: cardheader
       };
       //console.log(hbsObject);
       res.render("index", hbsObject);
     });
   } else {
-    console.log("Here is my condition!: " + condition);
+    //console.log("Here is my condition!: " + condition);
     bakeoff.catfilter(condition, function (data) {
-      //console.log(data);
+      //console.log(condition);
+      if (condition = "other") {
+        var str = "Other Goodies!";
+      } else {
+        var str = condition.charAt(0).toUpperCase() + condition.slice(1)+"!";
+      }      
+      //console.log(condition);
       var hbsObject = {
-        bakeoffs: data
-
+        bakeoffs: data,
+        cardheader: str
       };
+      
       console.log(hbsObject);
       //res.status(200).end();
       res.render("index", hbsObject);

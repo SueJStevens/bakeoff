@@ -32,12 +32,21 @@ $(function() {
 
     switch(str) {
       case 'cookie':
+      case 'cookies':
+      case 'Cookie':
+      case 'Cookies':
           category = "Cookies";
           break;
       case 'cake':
+      case 'cakes':
+      case 'Cake':
+      case 'Cakes':
           category = "Cakes";
           break;
       case 'pie':
+      case 'pies':
+      case 'Pie':
+      case 'Pies':
           category = "Pies";
           break;
       default:
@@ -66,10 +75,20 @@ $(function() {
     );
   });
 
+  $("#btnHome").on("click", function(event){
+    console.log("Home Button Clicked");
+    $('#cardheader').text("All Holiday Foods!");
+
+    window.location="/"
+    return;
+
+  });
+
   $(".category-filter").on("click", function(event) {
     console.log("Filter Button Clicked!");
     var category = $(this).data("category");
     console.log(category);
+    $('#cardheader').text(category.charAt(0).toUpperCase() + category.slice(1)+"!");
 
     //create the object to send to ajax
     var catFilter = {
@@ -77,6 +96,8 @@ $(function() {
     };
     window.location="/"+category;
     return;
+  });
+
 
 
     //delete dom elements then insert them again
@@ -84,6 +105,7 @@ $(function() {
 
     // Send the PUT request.
     //$.ajax("/api/category/" + category, {
+      /*
     $.ajax("/api/category", {
         type: "GET", //throws error Can't set headers after they are sent.
       //type: "PATCH",  //throws 404 not found
@@ -96,8 +118,9 @@ $(function() {
         location.reload();
       }
     );
+    
   });
-
+*/
   $(".delete-product").on("click", function(event) {
     var id = $(this).data("id");
 

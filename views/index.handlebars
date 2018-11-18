@@ -1,5 +1,8 @@
   <div class="container-fluid">
     <div class="jumbotron-fluid rounded" id="jumbotron_img">
+      <button id="btnHome" class="btn btn-primary m-3 text-white" data-toggle="tooltip" data-html="true" title="<em>Home is Where The Hearth Is</em>">
+        <i class="fas fa-home"></i>
+      </button>
       <div class="container text-center text-white pt-5 pb-5">
         <h1 class="display-2">Preheat Your Ovens...</h1>
         <h1 class="display-3">The Holidaze are almost here...</h1>
@@ -9,7 +12,7 @@
         <div class="col-6 offset-3">
           <form class="create-form">
             <label for="product" class="display-4">Add Your Favorite Holiday Treat to the List.</label>
-            <input id="product" name="product" type="text" class="form-control" placeholder="Gingerbread Cookies">
+            <input id="product" name="product" type="text" class="form-control" placeholder="Gingerbread Cookies" required>
             <button type="submit" class="btn btn-outline-secondary mt-3 mb-3">Add to Favorites List</button>
             </form>
         </div>
@@ -55,8 +58,8 @@
 
   <div class="d-flex justify-content-center card-container mt-0 pt-0">
     <div class="card rounded text-center ml-5 mr-5">
-      <div class=" card-header bg-dark text-white">
-      All Holiday Foods!
+      <div id="cardheader" class=" card-header bg-dark text-white">
+      {{cardheader}}
       </div>
       {{#each bakeoffs}}
         {{#unless eaten}}
@@ -64,7 +67,7 @@
         {{/unless}}
       {{/each}}
       <div class="card-footer  bg-dark text-white text-muted">
-        2 days ago
+        Christmas Is In {{moment "2018-12-25 00:00" "from" dfrom}}
       </div>
   </div>
     <div class="card rounded text-center ml-5 mr-5">
@@ -77,7 +80,7 @@
         {{/if}}
       {{/each}}
       <div class="card-footer  bg-dark text-white text-muted">
-        2 days ago
+        Summer (Time to Show Off  That Body!) Is In {{moment "2019-06-21 00:00" "from" dfrom}}
       </div>
     </div>
   </div>
