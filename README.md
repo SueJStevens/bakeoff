@@ -1,4 +1,5 @@
 # Holidaze Bakeoff Application
+Full Stack Application to demonstrate Node, Express, Handlebars and MVC Design
 Bootcamp Assignment 11/10/2018 - Node Express Handlebars MVC Design (Burger)
 
 ## Demo
